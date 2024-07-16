@@ -12,7 +12,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f0f2f5;
+            background-color: #54f1f7;
         }
         h1 {
             margin-top: 20px;
@@ -28,7 +28,7 @@
         .chart-container {
             width: 45%;
             margin: 20px 0;
-            background: white;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             padding: 20px;
@@ -87,7 +87,7 @@
             data: {
                 labels: ['Income', 'Payment'],
                 datasets: [{
-                    data: [80, 20],
+                    data: [70, 30],
                     backgroundColor: ['#ffa726', '#ef5350'],
                     borderColor: ['#fb8c00', '#e53935'],
                     borderWidth: 1
@@ -108,7 +108,7 @@
         new Chart(ctx3, {
             type: 'doughnut',
             data: {
-                labels: ['Product'],
+                labels: ['Product','Other'],
                 datasets: [{
                     data: [90, 10],
                     backgroundColor: ['#ab47bc', '#ce93d8'],
