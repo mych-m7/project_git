@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f2f5;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 80%;
+            margin-top: 20px;
+        }
+        .chart-container {
+            width: 45%;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        canvas {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <div class="container">
+        <div class="chart-container">
+            <canvas id="customerEmployeeChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="incomePaymentChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="productChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Customer vs Employee Chart
+        const ctx1 = document.getElementById('customerEmployeeChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: ['Customer', 'User or Employee'],
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#42a5f5', '#66bb6a'],
+                    borderColor: ['#1e88e5', '#43a047'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                }
+            }
+        });
+
+        // Income vs Payment Chart
+        const ctx2 = document.getElementById('incomePaymentChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Income', 'Payment'],
+                datasets: [{
+                    data: [80, 20],
+                    backgroundColor: ['#ffa726', '#ef5350'],
+                    borderColor: ['#fb8c00', '#e53935'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                }
+            }
+        });
+
+        // Product Chart
+        const ctx3 = document.getElementById('productChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                labels: ['Product'],
+                datasets: [{
+                    data: [90, 10],
+                    backgroundColor: ['#ab47bc', '#ce93d8'],
+                    borderColor: ['#8e24aa', '#ba68c8'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                }
+            }
+        });
+    </script>
+</body>
+</html>
